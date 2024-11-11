@@ -16,7 +16,7 @@ from datetime import datetime
 from sqlalchemy.orm import relationship
 import dct2 as dct
 import off_to_obj as oto
-import try5 as lsb
+import vertex_based as lsb
 import numpy as np
 import colorama
 from colorama import Fore, Style
