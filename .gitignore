@@ -5,3 +5,9 @@ my_env/
 __pycache__/
 *.pyc
 *.pyo
+
+# Add other folders you want to ignore here
+old/
+output/
+input/
+static/
