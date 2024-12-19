@@ -439,7 +439,9 @@ def create_tab_extract(user):
         my_reference_extraction =f"{new_folder_name}/this_the_output_after_dct.obj"
         
         extract_hash = lsb.extract_watermark(my_input_extraction,my_reference_extraction)
-        the_index = extract_hash.index('*')
+        print(f'extracted hash complet {extract_hash}')
+        the_index = extract_hash.find('*')
+        print(f"the index complet {the_index}")
         extracted_text = extract_hash[the_index+3:]
         extract_hash = extract_hash[:the_index]
         image = session.query(Image).filter_by(hashed_text=extract_hash).first()
@@ -463,7 +465,14 @@ def create_tab_extract(user):
             # Format the datetime object to the desired format
             # secure_text_incase =f"\nDate of watermark : {formatted_date}\nUsername : {user.name}\n"
             formatted_date = original_date.strftime("%d/%m/%Y %H:%M")
-            all_informations_ext =f"Watermark_key : {extracted_watermark_text}\nWatermark text : {extracted_text}"
+            all_informations_ext =f"Watermark_key : {extracted_watermark_text}\nWatermark text : look at extracted_text.txt"#Watermark text : {extracted_text}
+            file_name =  f"{new_folder_name}/extraction_text.txt"
+
+            # Write the content to the file
+            with open(file_name, "w") as file:
+                file.write(extracted_text)
+
+            print(f"The file '{file_name}' has been created successfully!")
             info_label = ctk.CTkLabel(frame2, text=all_informations_ext, font=('helvetica', 18) ,text_color="black",wraplength=200)
             info_label.pack(pady=5,anchor="w")
             

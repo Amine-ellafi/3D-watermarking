@@ -40,6 +40,7 @@ def extract_watermark(input_file, reference_file):
     watermark_text = ''.join(chr(int(watermark_bin[i:i+8], 2)) for i in range(0, len(watermark_bin), 8))
     w= str(watermark_text)
     print(f"Extracted watermark: {w.strip()}")
+    print(f"the normal text :=> {w}")
     print(f"the len is {len(w.strip())}")
     
     new=""
@@ -49,7 +50,10 @@ def extract_watermark(input_file, reference_file):
             new = w.replace(i,"")
     print(f"Extracted watermark2: {new}")
     print(f"the len of new is {len(new)}")
-    return new
+    if new != "":
+        return new
+    else:
+        return w
 
 
 if __name__=="__main__":

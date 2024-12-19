@@ -11,3 +11,13 @@ old/
 output/
 input/
 static/
+
+
+# Ignore specific Python files
+app_version1.py
+dct1.py
+refrence.py
+vert_watermark.py
+
+# Ignore database file
+my_db.db
